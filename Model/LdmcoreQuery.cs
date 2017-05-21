@@ -2,6 +2,8 @@
 using GraphQLDemo.Data;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace GraphQLDemo.Model
 {
@@ -11,34 +13,54 @@ namespace GraphQLDemo.Model
         public LdmcoreQuery(LdmcoreContext dbContext)
         {
             Field<LoginType>(
-              "login",
+              "Login",
               arguments: new QueryArguments(new QueryArgument<IdGraphType> { Name = "id" }),
               resolve: context =>
               {
                   var id = context.GetArgument<int>("id");
-
                   return dbContext.Logins.FirstOrDefault(x => x.LoginId == id);
               }
             );
 
             Field<OrderType>(
-              "order",
+              "Order",
               arguments: new QueryArguments(new QueryArgument<IdGraphType> { Name = "id" }),
               resolve: context =>
               {
-                  var id = context.GetArgument<int>("id");
+                var id = context.GetArgument<int>("id");
+                //var includeFields = context.ParentType.Fields.Where(x => x.Name != context.FieldName);
+                //dbContext.Orders.Include(x => x.)
+                var order = dbContext.Orders.Include("service").Include("OrderedBy").FirstOrDefault(x => x.Id == id);
+                return order;
+              }
+            );
 
-                return dbContext.Orders.Find(id);
+            
+            Field<ListGraphType<OrderType>>(
+              "Orders",
+              arguments: new QueryArguments(new QueryArgument<IdGraphType> { Name = "id" }),
+              resolve: context =>
+              {
+                  var id = context.GetArgument<int?>("id");
+                  if (id.HasValue)
+                  {
+                      var order = dbContext.Orders.FirstOrDefault(x => x.Id == id);
+                      return new List<Order>() { order };
+                  }
+
+                  return dbContext.Orders;
               }
             );
 
             Field<ServiceType>(
-              "service",
+              "Service",
               arguments: new QueryArguments(new QueryArgument<IdGraphType> { Name = "id" }),
               resolve: context =>
               {
                   var id = context.GetArgument<int>("id");
-
+                  
+                  // TODO:: Find the proper way to do this
+                  
                   return dbContext.Services.Find(id);
               }
             );

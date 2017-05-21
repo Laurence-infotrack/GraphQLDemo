@@ -17,7 +17,7 @@ namespace GraphQLDemo.Model
                 var serviceId = context.Source.ServiceId;
                 return dbContext.Services.Find(serviceId);
             });
-            Field<LoginType>("Login", "Login object for order", null,
+            Field<LoginType>("OrderedBy", "Login object for order", null,
             resolve: context =>
             {
                 var loginId = context.Source.LoginId;
