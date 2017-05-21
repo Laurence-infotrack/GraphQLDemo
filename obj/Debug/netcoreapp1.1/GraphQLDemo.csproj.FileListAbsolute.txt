@@ -1,0 +1,9 @@
+c:\users\laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\bin\Debug\netcoreapp1.1\GraphQLDemo.deps.json
+c:\users\laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\bin\Debug\netcoreapp1.1\GraphQLDemo.runtimeconfig.json
+c:\users\laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\bin\Debug\netcoreapp1.1\GraphQLDemo.runtimeconfig.dev.json
+c:\users\laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\bin\Debug\netcoreapp1.1\GraphQLDemo.dll
+c:\users\laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\obj\Debug\netcoreapp1.1\GraphQLDemo.AssemblyInfo.cs
+c:\Users\Laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\bin\Debug\netcoreapp1.1\GraphQLDemo.pdb
+c:\Users\Laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\obj\Debug\netcoreapp1.1\GraphQLDemo.csprojResolveAssemblyReference.cache
+c:\Users\Laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\obj\Debug\netcoreapp1.1\GraphQLDemo.dll
+c:\Users\Laurence\documents\visual studio 2017\Projects\GraphQL\GraphQL\obj\Debug\netcoreapp1.1\GraphQLDemo.pdb
